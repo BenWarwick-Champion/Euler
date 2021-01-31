@@ -13,6 +13,20 @@ def create_prime_array(up_to_num):
                 sieve[i] = False
     return prime_array
 
+def is_prime(num):
+    if num <= 1:
+        return False
+    if num <= 3:
+        return True
+    if num % 2 == 0 or num % 3 == 0:
+        return False
+    i = 5
+    while i**2 <= num:
+        if num % i == 0 or num % (i + 2) == 0:
+            return False
+        i += 6
+    return True
+
 def gen_triangle_nums():
     """Infinitely generate triangle numbers"""
     n, tri_num = 0, 0
